@@ -4,136 +4,267 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Royal Snacks 0570</title>
+
 <style>
-body{margin:0;background:#080808;color:white;font-family:Arial}
-header{text-align:center;padding:30px 15px;background:linear-gradient(#000,#1b1b1b)}
-h1{color:#f5c400;font-size:38px;margin:5px}
-h2{color:#f5c400;text-align:center}
-.badge{display:inline-block;background:#f5c400;color:black;padding:10px 14px;border-radius:12px;margin:5px;font-weight:bold}
-.deal{background:#f5c400;color:black;margin:20px;padding:20px;border-radius:18px;text-align:center}
-.section{padding:10px 15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.box{background:#181818;border:1px solid #f5c40055;padding:15px;border-radius:14px}
-.price{color:#f5c400;font-weight:bold}
-button{background:#f5c400;color:black;border:0;padding:10px 15px;border-radius:10px;font-weight:bold;margin-top:10px}
-.cart{position:sticky;bottom:0;background:#000;border-top:2px solid #f5c400;padding:15px}
-.whatsapp{display:block;background:#25D366;color:black;text-decoration:none;margin-top:10px;padding:15px;border-radius:12px;text-align:center;font-weight:bold}
-.remove{background:#333;color:white;padding:5px 9px;margin-left:6px}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0b0b;
+  color:white;
+  text-align:center;
+  padding-bottom:170px;
+}
+header{
+  background:#111;
+  padding:25px 15px;
+}
+h1{
+  color:#f5c400;
+  font-size:38px;
+}
+h2{
+  color:#f5c400;
+}
+.badge{
+  display:inline-block;
+  background:#f5c400;
+  color:black;
+  padding:10px 14px;
+  border-radius:12px;
+  margin:5px;
+  font-weight:bold;
+}
+.deal{
+  background:#f5c400;
+  color:black;
+  margin:15px;
+  padding:20px;
+  border-radius:15px;
+}
+.box{
+  background:#181818;
+  border:1px solid #f5c400;
+  margin:10px;
+  padding:15px;
+  border-radius:12px;
+}
+.price{
+  color:#f5c400;
+  font-weight:bold;
+}
+button{
+  background:#f5c400;
+  color:black;
+  border:0;
+  padding:10px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:8px;
+}
+.remove{
+  background:#333;
+  color:white;
+  padding:5px 9px;
+  margin-left:5px;
+}
+.cart{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#000;
+  border-top:2px solid #f5c400;
+  padding:15px;
+}
+.whatsapp{
+  display:block;
+  background:#25D366;
+  color:black;
+  text-decoration:none;
+  padding:14px;
+  border-radius:12px;
+  font-weight:bold;
+  max-width:330px;
+  margin:10px auto 0;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>👑 Royal Snacks 0570</h1>
-<p>Alleen bezorgen in Deventer</p>
-<div class="badge">🚗 Min. bestelling €20</div>
-<div class="badge">🎁 Bij elke €25 = gratis blikje</div>
+  <h1>👑 Royal Snacks 0570</h1>
+  <p>Alleen bezorgen in Deventer</p>
+  <div class="badge">🚗 Min. bestelling €20</div>
+  <div class="badge">🎁 Bij elke €25 = gratis blikje</div>
 </header>
 
 <div class="deal">
-<h2 style="color:black;">🔥 Actie Deal</h2>
-<h1 style="color:black;">Kapsalon groot + blikje</h1>
-<h1 style="color:black;">€14,50</h1>
-<button onclick="add('Kapsalon groot + blikje',14.50)">Toevoegen</button>
+  <h2 style="color:black;">🔥 NACHTMENU TOT 03:00</h2>
+  <h3>Honger na het uitgaan? Wij bezorgen!</h3>
+  <p><b>Kapsalon groot + blikje €14,50</b></p>
+  <button onclick="add('Kapsalon groot + blikje',14.50)">Toevoegen</button>
 </div>
 
-<div class="section"><h2>🥙 Kapsalon</h2><div class="grid" id="kapsalon"></div></div>
-<div class="section"><h2>🍟 Patat</h2><div class="grid" id="patat"></div></div>
-<div class="section"><h2>🍗 Snacks</h2><div class="grid" id="snacks"></div></div>
-<div class="section"><h2>🥖 Broodjes</h2><div class="grid" id="broodjes"></div></div>
-<div class="section"><h2>🥤 Dranken</h2><div class="grid" id="dranken"></div></div>
-<div class="section"><h2>🥫 Sauzen</h2><div class="grid" id="sauzen"></div></div>
+<h2>🥙 Kapsalon</h2>
+<div id="kapsalon"></div>
 
-<div class="section">
+<h2>🍟 Patat</h2>
+<div id="patat"></div>
+
+<h2>🍗 Snacks</h2>
+<div id="snacks"></div>
+
+<h2>🥖 Broodjes</h2>
+<div id="broodjes"></div>
+
+<h2>🥤 Dranken</h2>
+<div id="dranken"></div>
+
+<h2>🥫 Sauzen</h2>
+<div id="sauzen"></div>
+
+<h2>💰 Extra toevoegen</h2>
+<div class="box">
+  <button onclick="add('Extra vlees',2.50)">+ Extra vlees €2,50</button>
+  <button onclick="add('Extra kaas',1.50)">+ Extra kaas €1,50</button>
+  <button onclick="add('Red Bull',3.50)">+ Red Bull €3,50</button>
+</div>
+
 <h2>🛒 Winkelmandje</h2>
-<div id="cart">Nog niks gekozen.</div>
-</div>
+<div id="cartList">Nog niks gekozen.</div>
 
 <div class="cart">
-<h2>Totaal: €<span id="total">0.00</span></h2>
-<p id="blikje">🎁 Bij elke €25 krijg je een gratis blikje.</p>
-<a id="order" class="whatsapp" href="#">Min. bestelling €20</a>
+  <b>Totaal: €<span id="total">0.00</span></b>
+  <p id="blikje">🎁 Nog €25 tot gratis blikje</p>
+  <a id="order" class="whatsapp" href="#">Min. bestelling €20</a>
 </div>
 
 <script>
-var phone="31613643281";
-var cart=[];
+var phone = "31613643281";
+var cart = [];
 
-var data={
-"kapsalon":[
-["Kapsalon klein",11],["Kapsalon groot",13],["Kapsalon kip of döner",13],
-["Kapsalon mix",13.50],["Kapsalon speciaal",14.50],["Royal 0570",15.50]
-],
-"patat":[
-["Patat klein",3.20],["Patat middel",3.80],["Patat groot",4.50]
-],
-"snacks":[
-["Frikandel",2.80],["Frikandel speciaal",3.20],["Kroket",2.80],
-["Kaassoufflé",3.00],["Mexicano",3.00],["Bamischijf",3.00],["Kip nuggets 6 stuks",4.00]
-],
-"broodjes":[
-["Broodje döner",7.00],["Broodje kipdöner",7.00],["Broodje shoarma",8.00],
-["Broodje speciaal",8.00],["Broodje Royal 0570",9.00]
-],
-"dranken":[
-["Cola / Fanta / Sprite",2.50],["Ice Tea / Cassis",2.50],["Red Bull",3.50],["Water",2.00]
-],
-"sauzen":[
-["Mayo",0.80],["Curry",0.80],["Ketchup",0.80],["Knoflook",0.80],["Speciaal / oorlog",1.20]
-]
+var data = {
+  kapsalon: [
+    ["Kapsalon klein",11],
+    ["Kapsalon groot",13],
+    ["Kapsalon kip of döner",13],
+    ["Kapsalon mix",13.50],
+    ["Kapsalon speciaal",14.50],
+    ["Royal 0570",15.50]
+  ],
+  patat: [
+    ["Patat klein",3.20],
+    ["Patat middel",3.80],
+    ["Patat groot",4.50]
+  ],
+  snacks: [
+    ["Frikandel",2.80],
+    ["Frikandel speciaal",3.20],
+    ["Kroket",2.80],
+    ["Kaassoufflé",3.00],
+    ["Mexicano",3.00],
+    ["Bamischijf",3.00],
+    ["Kip nuggets 6 stuks",4.00]
+  ],
+  broodjes: [
+    ["Broodje döner",7.00],
+    ["Broodje kipdöner",7.00],
+    ["Broodje shoarma",8.00],
+    ["Broodje speciaal",8.00],
+    ["Broodje Royal 0570",9.00]
+  ],
+  dranken: [
+    ["Cola / Fanta / Sprite",2.50],
+    ["Ice Tea / Cassis",2.50],
+    ["Red Bull",3.50],
+    ["Water",2.00]
+  ],
+  sauzen: [
+    ["Mayo",0.80],
+    ["Curry",0.80],
+    ["Ketchup",0.80],
+    ["Knoflook",0.80],
+    ["Speciaal / oorlog",1.20]
+  ]
 };
 
-function render(cat){
-var el=document.getElementById(cat);
-for(var i=0;i<data[cat].length;i++){
-var p=data[cat][i];
-el.innerHTML += '<div class="box"><b>'+p[0]+'</b><br><span class="price">€'+p[1].toFixed(2)+'</span><br><button onclick="add(\''+p[0]+'\','+p[1]+')">Toevoegen</button></div>';
-}
+function render(category){
+  var el = document.getElementById(category);
+  for(var i=0; i<data[category].length; i++){
+    var p = data[category][i];
+    el.innerHTML +=
+      '<div class="box"><b>' + p[0] + '</b><br>' +
+      '<span class="price">€' + p[1].toFixed(2) + '</span><br>' +
+      '<button onclick="add(\'' + p[0] + '\',' + p[1] + ')">Toevoegen</button></div>';
+  }
 }
 
-render("kapsalon"); render("patat"); render("snacks"); render("broodjes"); render("dranken"); render("sauzen");
+render("kapsalon");
+render("patat");
+render("snacks");
+render("broodjes");
+render("dranken");
+render("sauzen");
 
-function add(name,price){
-cart.push({name:name,price:price});
-update();
+function add(name, price){
+  cart.push({name:name, price:price});
+  update();
 }
 
 function removeItem(index){
-cart.splice(index,1);
-update();
+  cart.splice(index,1);
+  update();
 }
 
 function update(){
-var total=0;
-var list="";
-for(var i=0;i<cart.length;i++){
-total+=cart[i].price;
-list += cart[i].name+" - €"+cart[i].price.toFixed(2)+' <button class="remove" onclick="removeItem('+i+')">x</button><br>';
-}
+  var total = 0;
+  var list = "";
 
-document.getElementById("cart").innerHTML=list || "Nog niks gekozen.";
-document.getElementById("total").innerHTML=total.toFixed(2);
+  for(var i=0; i<cart.length; i++){
+    total += cart[i].price;
+    list += cart[i].name + " - €" + cart[i].price.toFixed(2) +
+      ' <button class="remove" onclick="removeItem(' + i + ')">x</button><br>';
+  }
 
-var blikjes=Math.floor(total/25);
-document.getElementById("blikje").innerHTML = blikjes>0 ? "🎁 Je krijgt "+blikjes+" gratis blikje(s) naar keuze!" : "🎁 Bij elke €25 krijg je een gratis blikje.";
+  document.getElementById("cartList").innerHTML = list || "Nog niks gekozen.";
+  document.getElementById("total").innerHTML = total.toFixed(2);
 
-var text="Hoi Royal Snacks 0570, ik wil bestellen:%0A%0A";
-for(var j=0;j<cart.length;j++){
-text += "- "+cart[j].name+" €"+cart[j].price.toFixed(2)+"%0A";
-}
-text += "%0ATotaal: €"+total.toFixed(2);
-text += "%0AGratis blikjes: "+blikjes;
-text += "%0AAdres: ";
+  var blikjes = Math.floor(total / 25);
+  var nodig = 25 - (total % 25);
+  var suggestie = "";
 
-var order=document.getElementById("order");
-if(total<20){
-order.href="#";
-order.innerHTML="Min. bestelling €20";
-}else{
-order.href="https://wa.me/"+phone+"?text="+text;
-order.innerHTML="📲 Bestel via WhatsApp";
-}
+  if(total > 0 && total < 25){
+    if(nodig <= 5){ suggestie = "<br>🔥 Voeg nog iets toe en pak je gratis blikje!"; }
+    if(nodig <= 3){ suggestie = "<br>💰 Pak nog een drankje of saus erbij!"; }
+  }
+
+  if(total >= 25){
+    document.getElementById("blikje").innerHTML =
+      "🎁 Je krijgt " + blikjes + " gratis blikje(s) naar keuze!";
+  } else {
+    document.getElementById("blikje").innerHTML =
+      "🎁 Nog €" + nodig.toFixed(2) + " tot gratis blikje!" + suggestie;
+  }
+
+  var text = "Hoi Royal Snacks 0570, ik wil bestellen:%0A%0A";
+  for(var j=0; j<cart.length; j++){
+    text += "- " + cart[j].name + " €" + cart[j].price.toFixed(2) + "%0A";
+  }
+
+  text += "%0ATotaal: €" + total.toFixed(2);
+  text += "%0AGratis blikjes: " + blikjes;
+  text += "%0AAdres: ";
+
+  var order = document.getElementById("order");
+
+  if(total < 20){
+    order.href = "#";
+    order.innerHTML = "Min. bestelling €20";
+  } else {
+    order.href = "https://wa.me/" + phone + "?text=" + text;
+    order.innerHTML = "📲 Bestel via WhatsApp";
+  }
 }
 </script>
 
